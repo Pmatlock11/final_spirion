@@ -1,0 +1,398 @@
+// This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+$dark-blue: #07264d;
+$orange: #f37723;
+$gray: #d8d8d8;
+$white: #fff;
+$black: #000;
+$darkest-blue:#05244b;
+$input-color:#797979;
+$links-color:#1c385c;
+$silver: #e3e3e3;
+$primary-text-clor:#5d5d5d;
+$light-gray:#b5b5b5;
+$sky-blue:#26b4e3;
+
+
+
+
+body{
+    font-family: 'PT Sans', sans-serif;
+}
+a{
+    color:$links-color;
+    &:hover{
+        text-decoration: none;
+    }
+}
+h1{
+    font-weight: 700;
+}
+h3{
+    width:100%;
+    padding: 0 0 10px;
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    line-height: 31px;
+    color:$darkest-blue;
+    position: relative;
+    &:after{
+        width:51px;
+        height:2px;
+        position: absolute;
+        content:'';
+        bottom:0;
+        left:50%;
+        transform: translate(-50%,0);
+        -webkit-transform: translate(-50%,0);
+        -moz-transform: translate(-50%,0);
+        background: $darkest-blue;
+    }
+}
+.img-responsive{
+    width:100%;
+    max-width: none;
+}
+.max_width{
+    max-width:100% !important;
+}
+.d-table{
+    width:100%;
+    height:100%;
+    display: table;
+}
+.v-middle{
+    width:100%;
+    height:100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+.btn-primary{
+    margin:0 9px;
+    padding: 4px 20px;
+    border-radius: 30px;
+    border:3px solid #000;
+    letter-spacing: 1px;
+    display:inline-block;
+    vertical-align: top;
+    background:none;
+    font-weight: 700;
+    color:$black;
+    &.filled,
+    &:hover{
+        color:$white;
+        background:$orange;
+        border-color: $orange;
+    }
+    &.big{
+        padding: 8px 30px;
+        font-size: 16px;
+    }
+}
+input:focus{ outline: none; }
+.container {
+    max-width:1200px !important;
+}
+.wrapper {
+    padding: 0;
+}
+.list-inline{
+    li{
+        display:inline-block;
+        vertical-align: top;
+    }
+}
+.navbar {
+    padding-top:13px;
+    padding-bottom: 12px;
+    .navbar-brand {
+        margin-right: 0;
+        white-space: nowrap;
+        vertical-align: top;
+        padding:13px 35px 0;
+        font-size: inherit;
+        line-height: inherit;
+        img {
+            width: 96px;
+            display: block;
+        }
+    }
+    .container, .row{
+        display:block;
+    }
+    .top_misc_links{
+        margin:0;
+        font-size: 15px;
+        a{
+            padding:5px 28px 2px 28px;
+            color:$white;
+            background:$dark-blue;
+            display:block;
+            border-radius: 30px;
+            text-align: center;
+        }
+        li{
+            margin-left: 8px;
+            &:last-child{
+                a{
+                    background:$orange;
+                }
+                
+            }
+        }
+    }
+}
+.header_holder{
+    width: 70%;
+    padding-right: 15px;
+    .top_search {
+        border-radius: 30px;
+        background: $gray url('../img/search-icon.png') no-repeat 90% 49%;
+        vertical-align: top;
+        margin: 3px 0 0;
+        width: 188px;
+        input[type=search]{
+            border: none;
+            background: none;
+            float: left;
+            width: 79%;
+            padding: 3px 0 2px 22px;
+            color:$input-color;
+        }
+    }
+}
+#nav {
+    padding: 11px 7px 0;
+    font-size: 15px;
+    ul{ margin:0; }
+    li{
+        margin-left: 32px;
+    }
+}
+.promo_area{
+    height:421px;
+    padding:56px 0 0;
+    overflow: hidden;
+    h1{
+        margin:0 0 19px;
+    }
+    .btn-primary{
+        padding: 4px 76px;
+    }
+}
+.video_area{
+    margin:-212px 0 53px;
+    color:$primary-text-clor;
+    font-size: 30px;
+    line-height: 41px;
+    overflow: hidden;
+    .vid_holder{
+        max-width: 710px;
+        margin:0 auto 51px;
+        overflow: hidden;
+    }
+}
+.platforms{
+    margin: 0 0 109px;
+    font-size: 20px;
+    line-height: 25px;
+    color:$darkest-blue;
+    .img_holder{
+        height:63px;
+        overflow: hidden;
+    }
+    img{
+        display: block;
+        margin:0 auto 20px;
+    }
+    strong{
+        height: 93px;
+        margin: 0 0 12px;
+        font-size: 23px;
+        font-weight: bold;
+        display: block;
+        line-height: 31px;
+    }
+    p{
+        min-height: 100px;
+        margin:0 40px 30px;
+    }
+    .carousel{
+        max-width: 977px;
+        margin: 0 auto;
+    }
+    .carousel-control-next,
+    .carousel-control-prev{
+        position: static;
+        display: inline-block;
+        vertical-align: top;
+        width: auto;
+        margin: 0 2px;
+        opacity: 1;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon{
+        width:12px;
+        height:18px;
+        background:url('../img/sprite.png') no-repeat;
+    }
+    .carousel-control-next-icon{
+        background:url('../img/sprite.png') no-repeat -20px 0;
+    }
+    .btn_div{
+        padding-top: 37px;
+        .btn-primary{
+            display:block;
+            margin:0 auto;
+        }
+    }
+}
+.how_works{
+    margin:0 0 100px;
+    padding-bottom: 10px;
+    color:$light-gray;
+    overflow: hidden;
+    h3{
+        margin: 0 0 37px;
+        &:after{
+            display:block;
+        }
+    }
+    overflow: hidden;
+    .title{
+        height: 151px;
+        display: block;
+        color: $white;
+        padding:22px;
+        font-weight: 700;
+        font-size: 21px;
+        background: #4ddaf3; /* Old browsers */
+        background: -moz-linear-gradient(45deg, #4ddaf3 0%, #2cbae5 51%, #26b4e3 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg, #4ddaf3 0%,#2cbae5 51%,#26b4e3 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg, #4ddaf3 0%,#2cbae5 51%,#26b4e3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4ddaf3', endColorstr='#26b4e3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    }
+    .txt {
+        height: 371px;
+        padding: 57px 50px 0;
+        -webkit-box-shadow: 0 2px 7px 0 $gray;
+        box-shadow: 0 2px 7px 0 $gray;
+        overflow: hidden;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        img {
+            display: block;
+            margin: 0 auto 51px;
+            max-width: 100%;
+        }
+    }
+}
+.get_started{
+    margin:0 0 95px;
+    .col_holder{
+        max-width: 68%;
+        margin: 0 auto;
+        padding: 0 19px 20px;
+        -webkit-box-shadow: 0 2px 7px 0 $gray;
+        box-shadow: 0 2px 7px 0 $gray;
+        overflow: hidden;
+    }
+    .col_header{
+        padding: 11px 0 16px;
+        border-bottom: 2px solid $silver;
+        overflow: hidden;
+        span{
+            float: left;
+            font-weight: 700;
+            font-size: 42px;
+            line-height: 45px;
+            padding: 21px 0 0;
+            color:$orange;
+        }
+        img{
+            float: right;
+            max-width: 66px;
+        }
+    }
+    .col_text {
+        overflow: hidden;
+        font-size: 19px;
+        line-height: 28px;
+        padding: 18px 1px 0;
+        color:$darkest-blue;
+        .txt_heading {
+            height: 48px;
+            margin:0 0 8px;
+            display: block;
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+    .btn-primary{
+        padding: 8px 7px;
+        font-size: 13px;
+        width: 190px;
+        text-align: center;
+    }
+    p{
+        min-height: 123px;
+    }
+}
+.demo_area{
+    height: 344px;
+    margin:0 0 102px;
+    overflow: hidden;
+    .txt{
+        padding-left: 107px;
+    }
+    .row,
+    .container{
+        height:100%;
+    }
+    h2{
+        margin:0 0 20px;
+        font-weight: 700;
+    }
+}
+.clients{
+    overflow: hidden;
+    .clients_slider{
+        width:100%;
+        text-align: center;
+    }
+    .client_image{
+        margin:0 10px;
+        display: inline-block;
+        vertical-align: top;
+        img{
+            opacity: 0.4;
+        }
+        &:hover,
+        &.active{
+            img{
+                opacity: 1;
+            }
+        }
+    }
+    .carousel-indicators{
+        margin: 25px 0 19px;
+        position: static;
+        li{
+            width:15px;
+            height:15px;
+            padding:0;
+            border-radius: 100%;
+            background:$sky-blue;
+            border:none;
+            opacity: 0.4;
+            &.active,
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+    h3{
+        margin: 0 0 32px;
+    }
+}
