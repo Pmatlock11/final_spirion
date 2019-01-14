@@ -27,8 +27,11 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2>About Spirion</h2>
-                        <strong>A Data Management Software Provider</strong>
+                        <h2>
+                            <?php the_title(); ?>
+                        </h2>
+                        <strong>
+                            <?php the_field('banner_tagline'); ?></strong>
                     </div>
                 </div>
             </div>
@@ -37,17 +40,7 @@ get_header();
             <div class="row">
                 <div class="col-12">
                     <div class="health_text add">
-                        <p>Spirion, headquartered in St. Petersburg, FL, is the leading provider of enterprise data
-                            management software to help businesses reduce their sensitive data footprint and
-                            proactively minimize the risks, costs and reputational damage of successful cyberattacks.
-                            Spirion helps organizations avoid costly data breaches by discovering, classifying,
-                            monitoring and protecting personal information, medical records, credit card numbers, and
-                            intellectual property stored across the enterprise, within e-mail, and in the cloud.
-                            Spirion specializes in the high-precison search and automated classification of unstructred
-                            data using its AnyFind<sup>TM</sup> engine's unparraleled accuracy when analyzing
-                            human-genrated text and images, Spirion has thousands of customers among leading firms in
-                            the healthcare, public sector, retial, education, financial services, energy, industrial,
-                            and entertainment markets.</p>
+                        <?php the_content(); ?>
                     </div>
                 </div>
             </div>
@@ -55,36 +48,30 @@ get_header();
         <div class="clients team_section">
             <div class="container">
                 <div class="row text-center">
-                    <h3 class="col-12 text-center">Our Management Team</h3>
+                    <h3 class="col-12 text-center">
+                        <?php echo get_field('team_section_heading', 'option'); ?>
+                    </h3>
                 </div>
                 <div class="row text-center">
+                    <?php $args = array('post_type' => 'team', 'posts_per_page' => -1, 'order' => 'ASC'); $the_query = new WP_Query($args); ?>
+                    <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
                     <div class="col-sm-4">
                         <div class="team_holder">
-                            <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/img12.png" alt="#"></div>
+                            <div class="img_holder">
+                                <?php the_post_thumbnail(); ?>
+                            </div>
                             <div class="text">
-                                <h4><a href="#" data-toggle="modal" data-target="#myModal">AG Crum</a></h4>
-                                <p>Chieg Executive Officer</p>
+                                <h4><a href="#" data-toggle="modal" data-target="#myModal">
+                                        <?php the_title(); ?>
+                                    </a>
+                                </h4>
+                                <p>
+                                    <?php the_content(); ?>
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="team_holder">
-                            <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/img12.png" alt="#"></div>
-                            <div class="text">
-                                <h4><a href="#" data-toggle="modal" data-target="#myModal">AG Crum</a></h4>
-                                <p>Chieg Executive Officer</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="team_holder">
-                            <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/img12.png" alt="#"></div>
-                            <div class="text">
-                                <h4><a href="#" data-toggle="modal" data-target="#myModal">AG Crum</a></h4>
-                                <p>Chieg Executive Officer</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php wp_reset_postdata(); endwhile; endif; ?>
                 </div>
             </div>
             <div class="container mt">
@@ -96,31 +83,7 @@ get_header();
             </div>
         </div>
 </div>
-<div class="container">
-    <div class="row threecols">
-        <div class="col-sm-4 text-center col col-12">
-            <div class="col_holder">
-                <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/icon4.png" alt="#"></div>
-                <p>Find the sensitive data hiding on your systems.</p>
-                <a href="#" class="btn-primary filled">Try Now</a>
-            </div>
-        </div>
-        <div class="col-sm-4 text-center col col-12">
-            <div class="col_holder">
-                <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/icon5.png" alt="#"></div>
-                <p>View an expert-guided tour of our platform.</p>
-                <a href="#" class="btn-primary filled">Try Now</a>
-            </div>
-        </div>
-        <div class="col-sm-4 text-center col col-12">
-            <div class="col_holder">
-                <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/icon6.png" alt="#"></div>
-                <p>Contact us and learn about costs and capabilities.</p>
-                <a href="#" class="btn-primary filled">Try Now</a>
-            </div>
-        </div>
-    </div>
-</div>
+<?php get_template_part('blocks/our-features'); ?>
 </main><!-- #main -->
 </div><!-- #index-wrapper -->
 <div class="modal fade" id="myModal" role="dialog">
@@ -129,25 +92,31 @@ get_header();
         <div class="modal-content">
             <div class="modal-body">
                 <div class="container">
+                    <?php $args = array('post_type' => 'team', 'posts_per_page' => 4, 'order' => 'ASC'); $the_query = new WP_Query($args); ?>
+                    <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
                     <div class="row">
                         <div class="col-sm-3 text-center">
                             <img src="<?php bloginfo('template_url'); ?>/img/img12.png" class="bio_photo">
-                            <h4>AG Crum</h4>
-                            <p>Chief Executive Officer</p>
+                            <h4>
+                                <?php the_title(); ?>
+                            </h4>
+                            <p>
+                                <?php the_content(); ?>
+                            </p>
                         </div>
                         <div class="col-sm-9">
-                            <strong>[Attribute Title]</strong>
-                            <p>[Attribute Answer] Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's. </p>
-                            <strong>[Attribute Title]</strong>
-                            <p>[Attribute Answer] Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's. </p>
-                            <strong>[Attribute Title]</strong>
-                            <p>[Attribute Answer] Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's. </p>
+                            <?php if (have_rows('bio_row')) : while (have_rows('bio_row')) : the_row(); ?>
+                            <strong>
+                                <?php the_sub_field('heading'); ?></strong>
+                            <p>
+                                <?php the_sub_field('text'); ?>
+                            </p>
+                            <?php endwhile; 
+                                endif; ?>
                         </div>
 
                     </div>
+                    <?php wp_reset_postdata(); endwhile; endif; ?>
                 </div>
             </div>
         </div>

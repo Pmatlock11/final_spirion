@@ -30,61 +30,73 @@ $container = get_theme_mod('understrap_container_type');
             <div class="col-12 col-sm-2 col-6">
                 <div class="col_holder">
                     <strong>List Title</strong>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#">List Item</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-menu1',
+                        'menu_id' => 'menu',
+                        'order' => 'ASC',
+                        'menu_class' => 'list-unstyled'
+                    ));
+                    ?>
                 </div>
                 <div class="col_holder">
                     <strong>List Title</strong>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-sm-2 col-6">
-                <div class="col_holder">
-                    <strong>List Title</strong>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                    </ul>
-                </div>
-                <div class="col_holder">
-                    <strong>List Title</strong>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-menu2',
+                        'menu_id' => 'menu',
+                        'order' => 'ASC',
+                        'menu_class' => 'list-unstyled'
+                    ));
+                    ?>
                 </div>
             </div>
             <div class="col-12 col-sm-2 col-6">
                 <div class="col_holder">
                     <strong>List Title</strong>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-menu3',
+                        'menu_id' => 'menu',
+                        'order' => 'ASC',
+                        'menu_class' => 'list-unstyled'
+                    ));
+                    ?>
                 </div>
                 <div class="col_holder">
                     <strong>List Title</strong>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-menu4',
+                        'menu_id' => 'menu',
+                        'order' => 'ASC',
+                        'menu_class' => 'list-unstyled'
+                    ));
+                    ?>
+                </div>
+            </div>
+            <div class="col-12 col-sm-2 col-6">
+                <div class="col_holder">
+                    <strong>List Title</strong>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-menu5',
+                        'menu_id' => 'menu',
+                        'order' => 'ASC',
+                        'menu_class' => 'list-unstyled'
+                    ));
+                    ?>
+                </div>
+                <div class="col_holder">
+                    <strong>List Title</strong>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-menu6',
+                        'menu_id' => 'menu',
+                        'order' => 'ASC',
+                        'menu_class' => 'list-unstyled'
+                    ));
+                    ?>
                 </div>
             </div>
             <div class="col-12 col-sm-2 col-6">
@@ -101,25 +113,33 @@ $container = get_theme_mod('understrap_container_type');
                     </ul>
                 </div>
                 <div class="col_holder">
-                    <ul class="list-unstyled border_bottom">
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-menu7',
+                        'menu_id' => 'menu',
+                        'order' => 'ASC',
+                        'menu_class' => 'list-unstyled border_bottom'
+                    ));
+                    ?>
                 </div>
                 <div class="col_holder">
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                        <li><i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#">List Item</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-menu8',
+                        'menu_id' => 'menu',
+                        'order' => 'ASC',
+                        'menu_class' => 'list-unstyled'
+                    ));
+                    ?>
                 </div>
             </div>
         </div><!-- row end -->
         <div class="row">
             <div class="col-12 col-sm-3 col-6 lg_none">
                 <a href="#" class="footer_logo"><img src="<?php bloginfo('template_url'); ?>/img/footer_logo.png" class="max_width"></a>
-                <p>Lorem ipsum dolor sit <br>amet, consectetur <br>adipscing elit. In ut <br>velit lectus.</p>
+                <p>
+                    <?php echo get_field('company_moto', 'option'); ?>
+                </p>
             </div>
             <div class="col-12 text-center rights">
                 <p>
@@ -151,6 +171,17 @@ $container = get_theme_mod('understrap_container_type');
     });
 
     jQuery(document).ready(function() {
+        jQuery('.tabs li a').each(function() {
+            var str = jQuery(this).attr('href');
+            var newStr = str.replace(/\s+/g, '');
+            jQuery(this).attr('href', newStr);
+        });
+        jQuery('.tab').each(function() {
+            var tab_id = jQuery(this).attr('id');
+            var tab_id_holder = tab_id.replace(/\s+/g, '');
+            jQuery(this).attr('id', tab_id_holder);
+        });
+
         jQuery(".auto_tabs li:first-child").addClass("active");
         setTimeout(autoAddClass, 3000);
 

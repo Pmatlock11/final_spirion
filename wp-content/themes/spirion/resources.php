@@ -27,7 +27,9 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2>Resources</h2>
+                        <h2>
+                            <?php the_title(); ?>
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -50,90 +52,29 @@ get_header();
                         <div class="articles resources">
                             <div class="container">
                                 <div class="row">
+                                    <?php $args = array('post_type' => 'blog post', 'posts_per_page' => -1, 'order' => 'ASC'); $the_query = new WP_Query($args); ?>
+                                    <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
                                     <div class="col-sm-4 col-6">
                                         <div class="column">
-                                            <img src="http://localhost/Spirion/wp-content/themes/spirion/img/img15.png"
-                                                class="img-responsive">
+                                            <?php the_post_thumbnail('full', array('class' => 'img-responsive')); ?>
                                             <div class="txt">
-                                                <h5 class="resource_title">White Papers</h5>
+                                                <h5 class="resource_title">
+                                                    <?php $category = get_the_category(); ?>
+
+                                                    <?php echo $category[0]->cat_name; ?>
+                                                    <?php get_the_category($id)[0]->name ?>
+                                                </h5>
                                                 <div class="txt_holder">
-                                                    <strong>Everything You Need To Know About The California
-                                                        Consumer...</strong>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                    <strong>
+                                                        <?php the_title(); ?></strong>
+                                                    <p>
+                                                        <?php the_excerpt(); ?>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4 col-6">
-                                        <div class="column">
-                                            <img src="http://localhost/Spirion/wp-content/themes/spirion/img/img15.png"
-                                                class="img-responsive">
-                                            <div class="txt">
-                                                <h5 class="resource_title">White Papers</h5>
-                                                <div class="txt_holder">
-                                                    <strong>Everything You Need To Know About The California
-                                                        Consumer...</strong>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-6">
-                                        <div class="column">
-                                            <img src="http://localhost/Spirion/wp-content/themes/spirion/img/img15.png"
-                                                class="img-responsive">
-                                            <div class="txt">
-                                                <h5 class="resource_title">White Papers</h5>
-                                                <div class="txt_holder">
-                                                    <strong>Everything You Need To Know About The California
-                                                        Consumer...</strong>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-6">
-                                        <div class="column">
-                                            <img src="http://localhost/Spirion/wp-content/themes/spirion/img/img15.png"
-                                                class="img-responsive">
-                                            <div class="txt">
-                                                <h5 class="resource_title">White Papers</h5>
-                                                <div class="txt_holder">
-                                                    <strong>Everything You Need To Know About The California
-                                                        Consumer...</strong>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-6">
-                                        <div class="column">
-                                            <img src="http://localhost/Spirion/wp-content/themes/spirion/img/img15.png"
-                                                class="img-responsive">
-                                            <div class="txt">
-                                                <h5 class="resource_title">White Papers</h5>
-                                                <div class="txt_holder">
-                                                    <strong>Everything You Need To Know About The California
-                                                        Consumer...</strong>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-6">
-                                        <div class="column">
-                                            <img src="http://localhost/Spirion/wp-content/themes/spirion/img/img15.png"
-                                                class="img-responsive">
-                                            <div class="txt">
-                                                <h5 class="resource_title">White Papers</h5>
-                                                <div class="txt_holder">
-                                                    <strong>Everything You Need To Know About The California
-                                                        Consumer...</strong>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php wp_reset_postdata(); endwhile; endif; ?>
                                 </div>
                             </div>
                         </div>

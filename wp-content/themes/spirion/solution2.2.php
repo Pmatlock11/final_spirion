@@ -27,8 +27,11 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2>GDPR Data Inventory and Monitoring</h2>
-                        <strong>How Spirion can help you meet GDPR requirements</strong>
+                        <h2>
+                            <?php the_field('banner_heading'); ?>
+                        </h2>
+                        <strong>
+                            <?php the_field('banner_tagline'); ?></strong>
                     </div>
                 </div>
             </div>
@@ -37,135 +40,67 @@ get_header();
             <div class="row">
                 <div class="col-12">
                     <div class="health_text">
-                        <p>Spirion automates data discovery for GDPR data inventory with unparalleled accuracy, and
-                            helps map all your relevant GDPR data, as defined by you. Once you know where all your
-                            sensitive data resides, your organization can start to identify and prioritize gaps in GDPR
-                            compliance. Spirion's automated persistent classification tags and protects each file
-                            according to its specific dat classification. Monitor and autdit user activity, detect and
-                            manage risky behavior of newly created and existing assets with the Spyglass dashboard.
-                            Automate notification and remediation actions to respond to DSAR (Data Subject Access
-                            rights) requests and comply with Article 17, the right of erasure ("right to be
-                            forgotten"). Know your maximum exposure vs. whats' protected at any time - on premise and
-                            with third-party processors - before, during, and after the GDPR deadline.</p>
+                        <p>
+                            <?php the_content(); ?>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container healthcare_text_holder featured_solution">
+            <?php $args = array('post_type' => 'step', 'category_name' => 'featured-step'); $the_query = new WP_Query($args); ?>
+            <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong class="title">[Featured Type]</strong>
-                    <span>[Resource Title Goes Here and Can Be <br>Multiple Lines]</span>
-                    <p>[Dedicated intro description] Lorem ipsum dolor sit amet, consectetur adipscing elit. Fusce
-                        sed libero sem. Nulla vestibulum nisi ante, sit amet viverra ipsum tincideunt in. Ut in
-                        metus ut quam interdum pretium. Tiam auctor nulla in malesuada imperdiet.</p>
+                    <strong class="title">
+                        <?php the_title(); ?></strong>
+                    <span>
+                        <?php the_field('tagline'); ?></span>
+                    <p>
+                        <?php the_content(); ?>
+                    </p>
                 </div>
                 <div class="col-sm-6 pull-right">
-                    <img src="<?php bloginfo('template_url'); ?>/img/img13.png" class="img-responsive">
+                    <?php the_post_thumbnail('full', array('class' => 'img-responsive')); ?>
                 </div>
             </div>
+            <?php wp_reset_postdata(); endwhile; endif; ?>
         </div>
         <div class="container solution_list">
             <div class="row">
                 <div class="col-sm-6 solution_item">
                     <ul class="solution_items list-unstyled">
+                        <?php $args = array('post_type' => 'step', 'category_name' => 'left-steps'); $the_query = new WP_Query($args); ?>
+                        <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
                         <li>
-                            <strong class="title">Title Header Step</strong>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br>adipscing elit. Praesent nec aliquam nunc.</p>
+                            <strong class="title">
+                                <?php the_title(); ?></strong>
+                            <p>
+                                <?php the_content(); ?>
+                            </p>
                         </li>
-                        <li>
-                            <strong class="title">Title Header Step</strong>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br>adipscing elit. Praesent nec aliquam nunc.</p>
-                        </li>
-                        <li>
-                            <strong class="title">Title Header Step</strong>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br>adipscing elit. Praesent nec aliquam nunc.</p>
-                        </li>
+                        <?php wp_reset_postdata(); endwhile;  endif; ?>
                     </ul>
                 </div>
                 <div class="col-sm-5 solution_item pull-right">
                     <ul class="solution_items list-unstyled">
+                        <?php $args = array('post_type' => 'step', 'category_name' => 'right-steps'); $the_query = new WP_Query($args); ?>
+                        <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
                         <li>
-                            <strong class="title">Title Header Step</strong>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br>adipscing elit. Praesent nec aliquam nunc.</p>
+                            <strong class="title">
+                                <?php the_title(); ?></strong>
+                            <p>
+                                <?php the_content(); ?>
+                            </p>
                         </li>
-                        <li>
-                            <strong class="title">Title Header Step</strong>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br>adipscing elit. Praesent nec aliquam nunc.</p>
-                        </li>
-                        <li>
-                            <strong class="title">Title Header Step</strong>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br>adipscing elit. Praesent nec aliquam nunc.</p>
-                        </li>
+                        <?php wp_reset_postdata(); endwhile; endif; ?>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="clients" style="background:url('<?php bloginfo('template_url'); ?>/img/bg-clients.png') no-repeat; background-size: cover;">
-            <div class="container">
-                <div class="row text-center">
-                    <h3 class="col-12 text-center">Our Clients</h3>
-                </div>
-                <div class="row text-center">
-                    <div id="carouselExampleControls4" class="carousel clients_slider slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image active"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image active"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image active"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                            </div>
-                        </div>
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleControls4" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleControls4" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleControls4" data-slide-to="2"></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php get_template_part('blocks/clients-section'); ?>
 </div>
-<div class="container">
-    <div class="row threecols">
-        <div class="col-sm-4 text-center col col-12">
-            <div class="col_holder">
-                <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/icon4.png" alt="#"></div>
-                <p>Find the sensitive data hiding on your systems.</p>
-                <a href="#" class="btn-primary filled">Try Now</a>
-            </div>
-        </div>
-        <div class="col-sm-4 text-center col col-12">
-            <div class="col_holder">
-                <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/icon5.png" alt="#"></div>
-                <p>View an expert-guided tour of our platform.</p>
-                <a href="#" class="btn-primary filled">Try Now</a>
-            </div>
-        </div>
-        <div class="col-sm-4 text-center col col-12">
-            <div class="col_holder">
-                <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/icon6.png" alt="#"></div>
-                <p>Contact us and learn about costs and capabilities.</p>
-                <a href="#" class="btn-primary filled">Try Now</a>
-            </div>
-        </div>
-    </div>
-</div>
+<?php get_template_part('blocks/our-features'); ?>
 </main><!-- #main -->
 </div><!-- #index-wrapper -->
 <?php endwhile;

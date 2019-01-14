@@ -27,8 +27,11 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2>Healthcare</h2>
-                        <strong>The Remedy for Controlling Patient Data</strong>
+                        <h2>
+                            <?php the_title(); ?>
+                        </h2>
+                        <strong>
+                            <?php the_field('banner_tagline'); ?></strong>
                     </div>
                 </div>
             </div>
@@ -37,67 +40,12 @@ get_header();
             <div class="row">
                 <div class="col-12">
                     <div class="health_text">
-                        <p>Hospitals, clinics and doctor’s offices have a regulatory requirement to protect patient
-                            data in their systems and are subject to costly fines for noncompliance. If breached, PHI
-                            data sells for more on the underground market than PII, making it an attractive target.</p>
-                        <p>Spirion helps your organization locate Social Security numbers, insurance numbers and
-                            medical record numbers with the utmost accuracy. That way, your organization knows exactly
-                            what and where the regulated data is and can take immediate protective measures to manage
-                            it. Spirion keeps your organization in compliance with HIPAA and HITECH by helping to find
-                            and keep confidential: PCI, PII and PHI information.</p>
-                        <p>Spirion Data Platform is the one solution your organization needs for managing structured
-                            and unstructured data and continuously classifying and protecting new data as it is created
-                            and transmitted.</p>
+                        <?php the_content(); ?>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="clients" style="background:url('<?php bloginfo('template_url'); ?>/img/bg-clients.png') no-repeat; background-size: cover;">
-            <div class="container">
-                <div class="row text-center">
-                    <h3 class="col-12 text-center">Our Clients</h3>
-                </div>
-                <div class="row text-center">
-                    <div id="carouselExampleControls4" class="carousel clients_slider slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image active"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image active"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image active"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                                <div class="client_image"><img src="<?php bloginfo('template_url'); ?>/img/img8.png"></div>
-                            </div>
-                        </div>
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleControls4" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleControls4" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleControls4" data-slide-to="2"></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
-<div class="container mt">
-    <div class="row">
-        <div class="col-12 text-center">
-            <a href="#" class="btn-primary big filled ml-0">Request A Demo</a>
-        </div>
-    </div>
+        <?php get_template_part('blocks/clients-section'); ?>
 </div>
 <div class="resources">
 
@@ -108,155 +56,40 @@ get_header();
         <div class="row resource_cols">
             <div id="resource_slider" class="carousel clients_slider slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
+                    <?php $args = array('post_type' => 'resource', 'posts_per_page' => -1, 'order' => 'ASC'); $the_query = new WP_Query($args); ?>
+                    <?php $slide_counter = 1; if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                    <div class="carousel-item <?php if( $slide_counter == 1) { echo " active"; } ?>">
+                        <?php if (have_rows('slide_item')) : while (have_rows('slide_item')) : the_row(); ?>
                         <div class="col-sm-3">
                             <div class="resource_col">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img15.png" class="img-responsive">
+                                <img src="<?php the_sub_field('item_image');  ?>" class="img-responsive">
                                 <div class="txt text-center">
-                                    <strong>CCPA Automation</strong>
-                                    <p>Download the Datasheet</p>
+                                    <strong>
+                                        <?php the_sub_field('item_heading'); ?></strong>
+                                    <p>
+                                        <?php the_sub_field('download_button_text'); ?>
+                                    </p>
                                     <i class="fa fa-download" aria-hidden="true"></i>
                                 </div>
                                 <div class="resource_hover">
                                     <div class="d-table">
                                         <div class="v-middle">
-                                            <h5>[CTA to sign up for future webinar]</h5>
-                                            <a href="#">[Link to sign up] >>></a>
+                                            <h5>
+                                                <a href="#">
+                                                    <?php the_sub_field('cta_text_1'); ?>
+                                                </a>
+                                            </h5>
+                                            <a href="
+                                                    #">
+                                                <?php the_sub_field('cta_text_2'); ?></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <div class="resource_col">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img15.png" class="img-responsive">
-                                <div class="txt text-center">
-                                    <strong>CCPA Automation</strong>
-                                    <p>Download the Datasheet</p>
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                </div>
-                                <div class="resource_hover">
-                                    <div class="d-table">
-                                        <div class="v-middle">
-                                            <h5>[CTA to sign up for future webinar]</h5>
-                                            <a href="#">[Link to sign up] >>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="resource_col">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img15.png" class="img-responsive">
-                                <div class="txt text-center">
-                                    <strong>CCPA Automation</strong>
-                                    <p>Download the Datasheet</p>
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                </div>
-                                <div class="resource_hover">
-                                    <div class="d-table">
-                                        <div class="v-middle">
-                                            <h5>[CTA to sign up for future webinar]</h5>
-                                            <a href="#">[Link to sign up] >>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="resource_col">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img15.png" class="img-responsive">
-                                <div class="txt text-center">
-                                    <strong>CCPA Automation</strong>
-                                    <p>Download the Datasheet</p>
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                </div>
-                                <div class="resource_hover">
-                                    <div class="d-table">
-                                        <div class="v-middle">
-                                            <h5>[CTA to sign up for future webinar]</h5>
-                                            <a href="#">[Link to sign up] >>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endwhile; endif; ?>
                     </div>
-                    <div class="carousel-item">
-                        <div class="col-sm-3">
-                            <div class="resource_col">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img15.png" class="img-responsive">
-                                <div class="txt text-center">
-                                    <strong>CCPA Automation</strong>
-                                    <p>Download the Datasheet</p>
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                </div>
-                                <div class="resource_hover">
-                                    <div class="d-table">
-                                        <div class="v-middle">
-                                            <h5>[CTA to sign up for future webinar]</h5>
-                                            <a href="#">[Link to sign up] >>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="resource_col">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img15.png" class="img-responsive">
-                                <div class="txt text-center">
-                                    <strong>CCPA Automation</strong>
-                                    <p>Download the Datasheet</p>
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                </div>
-                                <div class="resource_hover">
-                                    <div class="d-table">
-                                        <div class="v-middle">
-                                            <h5>[CTA to sign up for future webinar]</h5>
-                                            <a href="#">[Link to sign up] >>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="resource_col">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img15.png" class="img-responsive">
-                                <div class="txt text-center">
-                                    <strong>CCPA Automation</strong>
-                                    <p>Download the Datasheet</p>
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                </div>
-                                <div class="resource_hover">
-                                    <div class="d-table">
-                                        <div class="v-middle">
-                                            <h5>[CTA to sign up for future webinar]</h5>
-                                            <a href="#">[Link to sign up] >>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="resource_col">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img15.png" class="img-responsive">
-                                <div class="txt text-center">
-                                    <strong>CCPA Automation</strong>
-                                    <p>Download the Datasheet</p>
-                                    <i class="fa fa-download" aria-hidden="true"></i>
-                                </div>
-                                <div class="resource_hover">
-                                    <div class="d-table">
-                                        <div class="v-middle">
-                                            <h5>[CTA to sign up for future webinar]</h5>
-                                            <a href="#">[Link to sign up] >>></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php $slide_counter++; wp_reset_postdata(); endwhile; endif; ?>
                 </div>
                 <!-- Left and right controls -->
                 <a class="carousel-control-prev" href="#resource_slider" role="button" data-slide="prev">
@@ -271,31 +104,7 @@ get_header();
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row threecols">
-        <div class="col-sm-4 text-center col col-12">
-            <div class="col_holder">
-                <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/icon4.png" alt="#"></div>
-                <p>Find the sensitive data hiding on your systems.</p>
-                <a href="#" class="btn-primary filled">Try Now</a>
-            </div>
-        </div>
-        <div class="col-sm-4 text-center col col-12">
-            <div class="col_holder">
-                <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/icon5.png" alt="#"></div>
-                <p>View an expert-guided tour of our platform.</p>
-                <a href="#" class="btn-primary filled">Try Now</a>
-            </div>
-        </div>
-        <div class="col-sm-4 text-center col col-12">
-            <div class="col_holder">
-                <div class="img_holder"><img src="<?php bloginfo('template_url'); ?>/img/icon6.png" alt="#"></div>
-                <p>Contact us and learn about costs and capabilities.</p>
-                <a href="#" class="btn-primary filled">Try Now</a>
-            </div>
-        </div>
-    </div>
-</div>
+<?php get_template_part('blocks/our-features'); ?>
 </main><!-- #main -->
 </div><!-- #index-wrapper -->
 <?php endwhile;

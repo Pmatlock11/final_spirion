@@ -1762,7 +1762,15 @@ img.bio_photo {
 p:empty {
     display: none;
 }
-
+#nav ul.dropdown-menu li {
+    margin: 0;
+    float: none;
+    padding: 0;
+    width: 100%;
+}
+#nav ul.dropdown-menu {
+    padding: 0;
+}
 @media only screen and (max-width:1200px) {
     .row.threecols .col_holder {
         padding: 27px 20px 36px;

@@ -27,11 +27,10 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2>Rapid sensitive data protection</h2>
-                        <strong>The average reduction of Sensitive Data Footprint with Spirion is 98.5%</strong>
-                        <span class="small">(Based on before and after audits with organizations of 1,000 or, more
-                            users)</span>
-                        <iframe src="https://www.youtube.com/embed/iQaeV6PzGOs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        <h2><?php the_field('banner_heading'); ?></h2>
+                        <strong><?php the_field('banner_tagline'); ?></strong>
+                        <span class="small"><?php the_field('banner_slogan'); ?></span>
+                        <iframe src="<?php the_field('banner_video_url'); ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
                 </div>
@@ -42,14 +41,8 @@ get_header();
                 <div class="row">
                     <div class="col-12 text-center">
                         <div class="rapid_header">
-                            <h2>Rapid, automated discovery and classification for all the sensitive data <br>across
-                                your network and cloud.</h2>
-                            <p>Spirion is the leader in automated data discovery and classification solutions that
-                                rapidly secure sensitive data with unmatched speed and precision -- amplifying your
-                                existing security investments with visibility and control needed to minimize risk,
-                                while easily integrating with eisting IT security infrastructures. Thousands of
-                                customers use Spirion to reduce their sensitive data footprint across the network and
-                                public cloud, while complying with regulations.</p>
+                            <h2><?php the_field('rapid_heading'); ?></h2>
+                            <p><?php the_content(); ?></p>
                         </div>
                     </div>
                 </div>
@@ -60,45 +53,26 @@ get_header();
                 <div class="row tabbing_row">
                     <div class="col-sm-3 tabset_col no_bg">
                         <ul class="tabs list-unstyled">
-                            <li><a href="#tab1">Discovery & <br>Classification</a></li>
-                            <li class="active"><a href="#tab2">Analytics</a></li>
-                            <li><a href="#tab3">Integration</a></li>
+                            <?php $args = array('post_type' => 'tab', 'category_name' => 'Platform Tabs'); $the_query = new WP_Query($args); ?>
+                            <?php $cn = 1; if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                            <li class="<?php if ($cn == 1) { echo 'active'; } ?>"><a href="#<?php the_title(); ?>"><?php the_title(); ?></a></li>
+						    <?php $cn++; wp_reset_postdata(); endwhile; endif; ?>
                         </ul>
                     </div>
                     <div class="col-sm-9">
-                        <div class="tab active" id="tab1">
-                            <div class="tab_text">
-                                <h3>Analytics</h3>
-                                <p>Quickly see the posture, risk exposure and protection status of sensitive data
-                                    across the company, and make dta driven decisions with Spirion's Spyglass<sup>TM</sup>.</p>
-                                <a href="#" class="read_more">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                            </div>
-                            <div class="img_holder">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img10.png" alt="#">
-                            </div>
-                        </div>
-                        <div class="tab" id="tab2">
-                            <div class="tab_text">
-                                <h3>Analytics</h3>
-                                <p>Quickly see the posture, risk exposure and protection status of sensitive data
-                                    across the company, and make dta driven decisions with Spirion's Spyglass<sup>TM</sup>.</p>
-                                <a href="#" class="read_more">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                            </div>
-                            <div class="img_holder">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img10.png" alt="#">
-                            </div>
-                        </div>
-                        <div class="tab" id="tab3">
-                            <div class="tab_text">
-                                <h3>Analytics</h3>
-                                <p>Quickly see the posture, risk exposure and protection status of sensitive data
-                                    across the company, and make dta driven decisions with Spirion's Spyglass<sup>TM</sup>.</p>
-                                <a href="#" class="read_more">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                            </div>
-                            <div class="img_holder">
-                                <img src="<?php bloginfo('template_url'); ?>/img/img10.png" alt="#">
-                            </div>
-                        </div>
+                            <?php $args = array('post_type' => 'tab', 'category_name' => 'Platform Tabs'); $the_query = new WP_Query($args); ?>
+                            <?php $tab_counter = 1; if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <div class="tab <?php if ($tab_counter == 1) { echo 'active'; } ?>" id="<?php the_title(); ?>">
+                                    <div class="tab_text">
+                                        <h3><?php the_title(); ?></h3>
+                                        <p><?php the_content(); ?></p>
+                                        <a href="<?php the_permalink(); ?>" class="read_more">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div class="img_holder">
+                                        <img src="<?php bloginfo('template_url'); ?>/img/img10.png" alt="#">
+                                    </div>
+                                </div>
+                            <?php $tab_counter++; wp_reset_postdata(); endwhile; endif; ?>
                     </div>
                 </div>
                 <div class="row tab_btns_row">
