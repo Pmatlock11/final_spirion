@@ -539,8 +539,9 @@ input:focus {
             margin: 0 0 10px;
             color: $spark-blue;
             font-size: 19px;
-            a{
-                color:#1cc5df;
+
+            a {
+                color: #1cc5df;
             }
         }
 
@@ -1762,15 +1763,112 @@ img.bio_photo {
 p:empty {
     display: none;
 }
+
 #nav ul.dropdown-menu li {
     margin: 0;
     float: none;
     padding: 0;
     width: 100%;
 }
+
 #nav ul.dropdown-menu {
     padding: 0;
 }
+
+.right_sticky {
+    position: fixed;
+    top: 30%;
+    right: 0;
+    z-index: 5;
+
+    a {
+        display: block;
+
+        img {
+            float: right;
+            margin: 0 0 20px;
+        }
+
+        &.sticky_closer {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            color: gray;
+        }
+    }
+
+    .stickey_contact_form {
+        width: 250px;
+        background: #fff;
+        box-shadow: 0 0 0px 2px #f1f1f1;
+        z-index: 500;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        padding: 10px 10px;
+        border-radius: 4px;
+
+        transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        transform: translate(120%, 0%);
+        -webkit-transform: translate(120%, 0%);
+        -moz-transform: translate(120%, 0%);
+
+        .title {
+            display: block;
+            margin: 0 0 10px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            display: block;
+            top: 0;
+            right: 0;
+            border-radius: 4px;
+            border: 1px solid gray;
+            margin: 0 0 10px;
+            height: 35px;
+            padding: 3px 10px;
+        }
+
+        input.wpcf7-not-valid,
+        select.wpcf7-not-valid,
+        textarea.wpcf7-not-valid {
+            border-color: red;
+        }
+
+        textarea {
+            width: 100%;
+            display: block;
+            resize: none;
+            height: 90px;
+            border: 1px solid gray;
+            padding: 3px 10px;
+        }
+
+        &.active {
+            transform: translate(0%, 0%);
+            -webkit-transform: translate(0%, 0%);
+            -moz-transform: translate(0%, 0%);
+        }
+
+        input[type="submit"] {
+            border: none;
+            background: #f37723;
+            color: #fff;
+            font-weight: bold;
+            margin: 10px 0 0;
+            cursor: pointer;
+        }
+    }
+}
+
+.country-select {
+    margin: 0 0 10px;
+}
+
 @media only screen and (max-width:1200px) {
     .row.threecols .col_holder {
         padding: 27px 20px 36px;
@@ -2157,7 +2255,21 @@ p:empty {
     }
 }
 
+form {
+    br {
+        display: none;
+    }
+}
+
+.wpcf7 .wpcf7-not-valid-tip {
+    display: none;
+}
+
 @media only screen and (max-width:767px) {
+    .right_sticky {
+        display: none;
+    }
+
     .featured_solution {
         margin: 0 0 20px
     }

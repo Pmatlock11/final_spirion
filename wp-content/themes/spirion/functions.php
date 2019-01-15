@@ -90,18 +90,6 @@ register_post_type('team', array(
 	'taxonomies' => array('post_tag', 'category'),
 	'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'excerpt')
 ));
-register_post_type('resource', array(
-	'label' => __('Resources'),
-	'singular_label' => __('Resources'),
-	'public' => true,
-	'show_ui' => true,
-	'capability_type' => 'post',
-	'hierarchical' => false,
-	'rewrite' => false,
-	'query_var' => false,
-	'taxonomies' => array('post_tag', 'category'),
-	'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'excerpt')
-));
 register_post_type('get start', array(
 	'label' => __('Get Start'),
 	'singular_label' => __('Get Start'),
@@ -177,9 +165,9 @@ function create_step_post_type()
 add_action('init', 'create_blog_post_type');
 function create_blog_post_type()
 {
-	register_post_type('blog post', array(
-		'label' => __('Blog Posts'),
-		'singular_label' => __('Blog Post'),
+	register_post_type('download resource', array(
+		'label' => __('Download Resources'),
+		'singular_label' => __('Download Resource'),
 		'public' => true,
 		'show_ui' => true,
 		'capability_type' => 'post',
@@ -190,6 +178,65 @@ function create_blog_post_type()
 		'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'excerpt')
 	));
 }
+
+add_action('init', 'theme_custom_init');
+function theme_custom_init()
+{
+	$labels = array(
+		'name' => _x('Resources', 'post type general name', 'your_text_domain'),
+		'singular_name' => _x('Resource', 'post type singular name', 'your_text_domain'),
+		'add_new' => _x('Add New', 'Resource', 'your_text_domain'),
+		'add_new_item' => __('Add New Resource', 'your_text_domain'),
+		'edit_item' => __('Edit Resource', 'your_text_domain'),
+		'new_item' => __('New Resource', 'your_text_domain'),
+		'all_items' => __('All Resources', 'your_text_domain'),
+		'view_item' => __('View Resources', 'your_text_domain'),
+		'search_items' => __('Search Resources', 'your_text_domain'),
+		'not_found' => __('No Resources found', 'your_text_domain'),
+		'not_found_in_trash' => __('No Resources found in Trash', 'your_text_domain'),
+		'parent_item_colon' => '',
+		'menu_name' => __('Resources', 'your_text_domain')
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'has_archive' => true,
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'excerpt')
+	);
+	register_post_type('resource', $args);
+}
+add_action('init', 'resource_categories');
+function resource_categories()
+{
+	$labels = array(
+		'name' => _x('Resource Categories', 'taxonomy general name'),
+		'singular_name' => _x('Resource Category', 'taxonomy singular name'),
+		'search_items' => __('Search Resource Categories'),
+		'all_items' => __('All Resource Categories'),
+		'parent_item' => __('Parent Resource Category'),
+		'parent_item_colon' => __('Parent Resource Category:'),
+		'edit_item' => __('Edit Resource Category'),
+		'update_item' => __('Update Resource Category'),
+		'add_new_item' => __('Add New Resource Category'),
+		'new_item_name' => __('New Resource Category Name'),
+	);
+	register_taxonomy('resource_taxonomies', 'resource', array(
+		'hierarchical' => true,
+		'show_admin_column' => true,
+		'labels' => $labels
+
+	));
+}
+
+
 function change_excerpt($text)
 {
 	$pos = strrpos($text, '[');
@@ -200,3 +247,21 @@ function change_excerpt($text)
 	return rtrim(substr($text, 0, $pos));
 }
 add_filter('get_the_excerpt', 'change_excerpt');
+function custom_search_form()
+{
+	$sq = get_search_query() ? get_search_query() : __('', 'base'); ?>
+<form method="get" action="<?php echo home_url(); ?>">
+		<input type="search" name="s" value="<?php echo $sq; ?>" placeholder="What are your looking for?" />
+</form>
+<?php
+
+}
+function custom_header_search_form()
+{
+	$sq = get_search_query() ? get_search_query() : __('', 'base'); ?>
+<form method="get" action="<?php echo home_url(); ?>">
+		<input type="search" name="s" value="<?php echo $sq; ?>" placeholder="Search..." />
+</form>
+<?php
+
+}

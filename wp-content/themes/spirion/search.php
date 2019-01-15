@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Search Results */
+
 /**
  *
  * This is the most generic template file in a WordPress theme
@@ -10,20 +10,14 @@
  *
  * @package understrap
  */
-
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
-
 get_header();
-
 ?>
-
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 <div class="wrapper" id="index-wrapper">
-
 		<main class="site-main" id="main">
-			<div class="banner search">
+		<div class="banner search">
 				<div class="container">
 					<div class="row">
 						<div class="col-12 text-center">
@@ -37,39 +31,16 @@ get_header();
 					<div class="row">
 						<div class="col-12">
 							<div class="search_form">
-								<form>
-									<input type="search" placeholder="What are your looking for?">
-								</form>
+								<?php custom_search_form(); ?>
 							</div>
 							<ul class="list-unstyled">
+								<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 								<li>
-									<strong class="title"><a href="#">Title of search results]</a></strong>
-									<p>[Brief excerpt of search result] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed libero sem. Nulla vestibulum nisi ante, sit amet viverra ipsum tincidunt in...</p>
+									<strong class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong>
+									<?php the_excerpt(); ?>
 								</li>
-								<li>
-									<strong class="title"><a href="#">Title of search results]</a></strong>
-									<p>[Brief excerpt of search result] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed libero sem. Nulla vestibulum nisi ante, sit amet viverra ipsum tincidunt in...</p>
-								</li>
-								<li>
-									<strong class="title"><a href="#">Title of search results]</a></strong>
-									<p>[Brief excerpt of search result] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed libero sem. Nulla vestibulum nisi ante, sit amet viverra ipsum tincidunt in...</p>
-								</li>
-								<li>
-									<strong class="title"><a href="#">Title of search results]</a></strong>
-									<p>[Brief excerpt of search result] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed libero sem. Nulla vestibulum nisi ante, sit amet viverra ipsum tincidunt in...</p>
-								</li>
-								<li>
-									<strong class="title"><a href="#">Title of search results]</a></strong>
-									<p>[Brief excerpt of search result] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed libero sem. Nulla vestibulum nisi ante, sit amet viverra ipsum tincidunt in...</p>
-								</li>
-								<li>
-									<strong class="title"><a href="#">Title of search results]</a></strong>
-									<p>[Brief excerpt of search result] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed libero sem. Nulla vestibulum nisi ante, sit amet viverra ipsum tincidunt in...</p>
-								</li>
-								<li>
-									<strong class="title"><a href="#">Title of search results]</a></strong>
-									<p>[Brief excerpt of search result] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed libero sem. Nulla vestibulum nisi ante, sit amet viverra ipsum tincidunt in...</p>
-								</li>
+								<?php endwhile;
+							endif; ?>
 							</ul>
 						</div>
 					</div>
@@ -77,12 +48,11 @@ get_header();
 				<div class="container mt">
 					<div class="row">
 						<div class="col-12 text-center">
-							<a href="#" class="btn-primary big filled ml-0 see_more">See more</a>
+							<!-- <a href="#" class="btn-primary big filled ml-0 see_more">See more</a> -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</main><!-- #main -->
 </div><!-- #index-wrapper -->
-<?php endwhile; endif; ?>
 <?php get_footer(); ?>

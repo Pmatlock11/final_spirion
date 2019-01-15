@@ -148,8 +148,26 @@ $container = get_theme_mod('understrap_container_type');
         </div>
     </div><!-- container end -->
 </footer><!-- wrapper end -->
+<div class="right_sticky">
+    <a href="#" class="contact_opener"><img src="<?php bloginfo('template_url'); ?>/img/btn_1.png" alt="#"></a>
+    <div class="stickey_contact_form">
+        <a href="#" class="sticky_closer contact_closer"><i class="fa fa-times" aria-hidden="true"></i></a>
+        <?php echo do_shortcode('[contact-form-7 id="338" title="Contact form 1"]'); ?>
+    </div>
+    <a href="#" class=""><img src="<?php bloginfo('template_url'); ?>/img/btn_2.png" alt="#"></a>
+    <a href="tel:042 000 000"><img src="<?php bloginfo('template_url'); ?>/img/btn_3.png" alt="#"></a>
+</div>
 </div><!-- #page we need this extra closing tag here -->
 <script>
+    jQuery('.contact_opener').click(function(e) {
+        e.preventDefault();
+        jQuery('.stickey_contact_form').addClass('active')
+    });
+    jQuery('.contact_closer').click(function(e) {
+        e.preventDefault();
+        jQuery('.stickey_contact_form').removeClass('active')
+    });
+
     jQuery('.nav_opener').click(function(e) {
         e.preventDefault();
         jQuery('#nav').slideToggle();

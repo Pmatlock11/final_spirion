@@ -51,18 +51,20 @@ get_header();
 
     <div class="container-fluid">
         <div class="row text-center">
-            <h3 class="col-12 text-center">Resources Downloads</h3>
+            <h3 class="col-12 text-center"><?php echo get_field('resources_downloads', 'option'); ?></h3>
         </div>
         <div class="row resource_cols">
             <div id="resource_slider" class="carousel clients_slider slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <?php $args = array('post_type' => 'resource', 'posts_per_page' => -1, 'order' => 'ASC'); $the_query = new WP_Query($args); ?>
-                    <?php $slide_counter = 1; if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                    <div class="carousel-item <?php if( $slide_counter == 1) { echo " active"; } ?>">
+                    <?php $args = array('post_type' => 'download resource', 'posts_per_page' => -1, 'order' => 'ASC');
+                    $the_query = new WP_Query($args); ?>
+                    <?php $slide_counter = 1;
+                    if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                    <div class="carousel-item <?php if ($slide_counter == 1) { echo " active"; } ?>">
                         <?php if (have_rows('slide_item')) : while (have_rows('slide_item')) : the_row(); ?>
                         <div class="col-sm-3">
                             <div class="resource_col">
-                                <img src="<?php the_sub_field('item_image');  ?>" class="img-responsive">
+                                <img src="<?php the_sub_field('item_image'); ?>" class="img-responsive">
                                 <div class="txt text-center">
                                     <strong>
                                         <?php the_sub_field('item_heading'); ?></strong>
@@ -79,9 +81,9 @@ get_header();
                                                     <?php the_sub_field('cta_text_1'); ?>
                                                 </a>
                                             </h5>
-                                            <a href="
-                                                    #">
-                                                <?php the_sub_field('cta_text_2'); ?></a>
+                                            <a href="#">
+                                                <?php the_sub_field('cta_text_2'); ?>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
