@@ -201,7 +201,7 @@ $container = get_theme_mod('understrap_container_type');
         });
 
         jQuery(".auto_tabs li:first-child").addClass("active");
-        setTimeout(autoAddClass, 3000);
+        setTimeout(autoAddClass, 10000);
 
         jQuery('.state_expender').click(function(e) {
             e.preventDefault();
@@ -217,7 +217,7 @@ $container = get_theme_mod('understrap_container_type');
             jQuery(next).addClass('active');
         else
             jQuery('.auto_tabs li:first-child').addClass('active');
-        setTimeout(autoAddClass, 3000);
+        setTimeout(autoAddClass, 10000);
         jQuery('.auto_switch .tab').removeClass('active');
         var curr_tab = jQuery('.auto_tabs li.active').find('a').attr('href');
         jQuery(curr_tab).addClass('active');
@@ -229,6 +229,7 @@ $container = get_theme_mod('understrap_container_type');
             jQuery(this).closest('.col_holder').find('ul').slideToggle();
         });
     }
+    jQuery('#nav ul li:has(ul)').addClass('has-drop');
 </script>
 <?php wp_footer(); ?>
 </body>

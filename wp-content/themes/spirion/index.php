@@ -27,7 +27,7 @@ get_header();
                     <?php the_field('banner_heading'); ?>
                 </h1>
                 <div class="btn text-uppercase">
-                    <a href="#" class="btn-primary filled">CTA TEXT</a>
+                    <a href="#" class="btn-primary">CTA TEXT</a>
                     <a href="#" class="btn-primary">CTA TEXT</a>
                 </div>
             </div>

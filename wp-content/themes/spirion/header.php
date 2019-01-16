@@ -59,74 +59,74 @@ $container = get_theme_mod('understrap_container_type');
 
 
         <!-- ******************* The Navbar Area ******************* -->
-
-        <div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
-
-
-
-            <a class="skip-link sr-only sr-only-focusable" href="#content">
-
-                <?php esc_html_e('Skip to content', 'understrap'); ?></a>
+        <div id="site_header">
+            <div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
 
 
 
-            <nav class="navbar navbar-expand-md navbar-dark">
+                <a class="skip-link sr-only sr-only-focusable" href="#content">
 
-                <a href="#" class="nav_opener"><i class="fa fa-bars" aria-hidden="true"></i></a>
-
-                <?php if ('container' == $container) : ?>
-
-                <div class="container">
-
-                    <?php endif; ?>
-
-                    <div class="row">
-
-                        <!-- Your site title as branding in the menu -->
-
-                        <h1 class="navbar-brand mb-0 pull-left"><a rel="home" href="<?php echo esc_url(home_url('/')); ?>"
-
-                                itemprop="url"><img src="<?php echo get_field('logo', 'option'); ?>"></a></h1>
+                    <?php esc_html_e('Skip to content', 'understrap'); ?></a>
 
 
 
+                <nav class="navbar navbar-expand-md navbar-dark">
 
+                    <a href="#" class="nav_opener"><i class="fa fa-bars" aria-hidden="true"></i></a>
 
-                        <span class="navbar-toggler-icon"></span>
-
-                        </button>
-
-                        <div class="header_holder pull-right text-right">
-
-                            <div class="top_area">
-
-                                <div class="top_search d-inline-block">
-
-                                    <?php custom_header_search_form(); ?>
-                                </div>
-                                <ul class="top_misc_links d-inline-block list-unstyled list-inline">
-                                    <li><a href="#">Contact Sales</a></li>
-                                    <li><a href="#">Try Now</a></li>
-                                </ul>
-                            </div>
-                            <nav id="nav">
-                                <?php
-                                wp_nav_menu(
-                                    array(
-                                        'theme_location' => 'primary',
-                                        'menu_class' => 'list-unstyled list-inline',
-                                        'container' => '',
-                                        'fallback_cb' => '',
-                                        'depth' => 2,
-                                        'walker' => new Understrap_WP_Bootstrap_Navwalker(),
-                                    )
-                                );
-                                ?>
-                            </nav>
-                        </div>
-                    </div>
                     <?php if ('container' == $container) : ?>
-                </div><!-- .container -->
-                <?php endif; ?>
-            </nav><!-- .site-navigation -->
-        </div><!-- #wrapper-navbar end -->
+
+                    <div class="container">
+
+                        <?php endif; ?>
+
+                        <div class="row">
+
+                            <!-- Your site title as branding in the menu -->
+
+                            <h1 class="navbar-brand mb-0 pull-left"><a rel="home" href="<?php echo esc_url(home_url('/')); ?>"
+
+                                    itemprop="url"><img src="<?php echo get_field('logo', 'option'); ?>"></a></h1>
+
+
+
+
+
+                            <span class="navbar-toggler-icon"></span>
+
+                            </button>
+
+                            <div class="header_holder pull-right text-right">
+
+                                <div class="top_area">
+
+                                    <div class="top_search d-inline-block">
+
+                                        <?php custom_header_search_form(); ?>
+                                    </div>
+                                    <ul class="top_misc_links d-inline-block list-unstyled list-inline">
+                                        <li><a href="#">Contact Sales</a></li>
+                                        <li><a href="#">Try Now</a></li>
+                                    </ul>
+                                </div>
+                                <nav id="nav">
+                                    <?php
+                                    wp_nav_menu(
+                                        array(
+                                            'theme_location' => 'primary',
+                                            'menu_class' => 'list-unstyled list-inline',
+                                            'container' => '',
+                                            'fallback_cb' => '',
+                                            'depth' => 2,
+                                        )
+                                    );
+                                    ?>
+                                </nav>
+                            </div>
+                        </div>
+                        <?php if ('container' == $container) : ?>
+                    </div><!-- .container -->
+                    <?php endif; ?>
+                </nav><!-- .site-navigation -->
+            </div><!-- #wrapper-navbar end -->
+        </div>

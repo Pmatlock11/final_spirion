@@ -48,11 +48,11 @@ get_header();
                 </div>
             </div>
         </div>
-        <div class="tabs_section">
+        <div class="tabs_section  auto_switch">
             <div class="container">
                 <div class="row tabbing_row">
                     <div class="col-sm-3 tabset_col no_bg">
-                        <ul class="tabs list-unstyled">
+                        <ul class="tabs list-unstyled auto_tabs">
                             <?php $args = array('post_type' => 'tab', 'category_name' => 'Platform Tabs'); $the_query = new WP_Query($args); ?>
                             <?php $cn = 1; if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
                             <li class="<?php if ($cn == 1) { echo 'active'; } ?>"><a href="#<?php the_title(); ?>"><?php the_title(); ?></a></li>
