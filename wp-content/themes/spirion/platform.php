@@ -55,14 +55,16 @@ get_header();
                         <ul class="tabs list-unstyled auto_tabs">
                             <?php $args = array('post_type' => 'tab', 'category_name' => 'Platform Tabs'); $the_query = new WP_Query($args); ?>
                             <?php $cn = 1; if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <li class="<?php if ($cn == 1) { echo 'active'; } ?>"><a href="#<?php the_title(); ?>"><?php the_title(); ?></a></li>
+                            <li class="<?php if ($cn == 1) { echo 'active specific_tab_name'; } ?>">
+                                <a href="#<?php the_title(); ?>"><?php the_title(); ?></a>
+                            </li>
 						    <?php $cn++; wp_reset_postdata(); endwhile; endif; ?>
                         </ul>
                     </div>
                     <div class="col-sm-9">
                             <?php $args = array('post_type' => 'tab', 'category_name' => 'Platform Tabs'); $the_query = new WP_Query($args); ?>
                             <?php $tab_counter = 1; if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <div class="tab <?php if ($tab_counter == 1) { echo 'active'; } ?>" id="<?php the_title(); ?>">
+                                <div class="tab <?php if ($tab_counter == 1) { echo 'active specific_tab_name'; } ?>" id="<?php the_title(); ?>">
                                     <div class="tab_text">
                                         <h3><?php the_title(); ?></h3>
                                         <p><?php the_content(); ?></p>

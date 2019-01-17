@@ -230,6 +230,9 @@ $container = get_theme_mod('understrap_container_type');
         });
     }
     jQuery('#nav ul li:has(ul)').addClass('has-drop');
+    jQuery('.specific_tab_name').find('a').attr('href', "#data");
+    jQuery('.tab.specific_tab_name').attr('id', "data");
+
 </script>
 <?php wp_footer(); ?>
 </body>
